@@ -1,4 +1,4 @@
-# 🌌 Galaxy Reaper (银河收割者)图片视频自动下载器
+# 🌌 Galaxy Reaper (银河收割者)图片视频自动下载器（chrome适用）
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python)[https://www.python.org/](https://www.python.org/)
 ![Selenium](https://img.shields.io/badge/Selenium-Automation-43B02A?style=for-the-badge&logo=selenium)[https://www.selenium.dev/](https://www.selenium.dev/)
