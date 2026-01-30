@@ -43,11 +43,3 @@
 ```bash
 git clone [https://github.com/你的用户名/Galaxy-Reaper.git](https://github.com/你的用户名/Galaxy-Reaper.git)
 cd Galaxy-Reaper
-🚀 使用方法 | Usage1. 启动程序Bashpython dpm.py
-程序会自动启动一个独立的 Chrome 调试窗口。2. 战术选择程序启动后，通过方向键或数字键选择下载模式：模式说明适用场景🚀 极速收割高并发 (5线程)，无延迟，翻页快普通摄影网站、建筑设计网、对爬虫限制宽松的站点🛡️ 潜行防封单线程，长延迟 (10-20s)，翻页长休眠Rule34, Gelbooru 等反爬严格的图站 (推荐)🔧 手动调校自定义所有参数高级用户3. 开始收割在弹出的 Chrome 窗口中，手动登录目标网站（如需要）。打开包含缩略图的列表页或收藏夹。回到终端，按下 Enter 键。坐和放宽，看着你的硬盘被填满。⚙️ 配置说明 | Configuration你可以在代码顶部的 CONFIG 字典中修改默认参数：PythonCONFIG = {
-    "BASE_SAVE_FOLDER": "Galaxy_Reaper_Archive", # 下载根目录
-    "MAX_WORKERS": 2,                            # 默认并发数
-    "MIN_IMAGE_SIZE_KB": 30,                     # 过滤小于 30KB 的图片
-    "VIDEO_EXTS": ('.mp4', '.mov',...)           # 支持的视频格式
-}
-⚠️ 免责声明 | Disclaimer本工具仅供个人学习与技术研究使用。使用者应对下载内容的版权归属负责。请遵守目标网站的 robots.txt 协议及服务条款。严禁将本工具用于DDoS攻击或非法数据抓取。开发者不对因使用本工具导致的账号封禁或法律纠纷承担任何责任。📜 许可证 | LicenseMIT License © 2026 Galaxy Reaper
