@@ -1,9 +1,13 @@
 # 🌌 Galaxy Reaper (银河收割者)
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python)[https://www.python.org/](https://www.python.org/)
+
 ![Selenium](https://img.shields.io/badge/Selenium-Automation-43B02A?style=for-the-badge&logo=selenium)[https://www.selenium.dev/](https://www.selenium.dev/)
+
 ![Rich](https://img.shields.io/badge/Rich-Terminal_UI-ff00ff?style=for-the-badge)[https://github.com/Textualize/rich](https://github.com/Textualize/rich)
+
 ![yt-dlp](https://img.shields.io/badge/yt--dlp-Video_Support-red?style=for-the-badge)[https://github.com/yt-dlp/yt-dlp](https://github.com/yt-dlp/yt-dlp)
+
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)[LICENSE](LICENSE)
 
 > **[ Veni, Vidi, Cepi ] - The Ultimate Archive Protocol**
@@ -43,7 +47,7 @@ cd Galaxy-Reaper
 
 ### 3. 安装依赖
 
-程序内置了自动依赖检测，也可以手动安装：
+程序内置了自动依赖检测，也可以手动安装或双击install_env.py安装：
 
 ```
 pip install -r requirements.txt
@@ -54,7 +58,7 @@ pip install -r requirements.txt
 ### 1. 启动程序
 
 ```
-python dpm.py
+python dpm_v16.0_Galaxy_Empire_Prestige_Edition.py
 ```
 
 *程序会自动启动一个独立的 Chrome 调试窗口，不会影响你原本的浏览器。*
@@ -86,7 +90,7 @@ python dpm.py
 
 ## ⚙️ 高级配置 | Configuration
 
-你可以在 `dpm.py` 顶部的 `CONFIG` 字典中修改默认硬编码参数：
+你可以在 `dpm_v16.0_Galaxy_Empire_Prestige_Edition.py` 顶部的 `CONFIG` 字典中修改默认硬编码参数：
 
 ```
 CONFIG = {
