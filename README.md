@@ -54,7 +54,7 @@ pip install -r requirements.txt
 ### 1. 启动程序
 
 ```
-python dpm_v16.0_Galaxy_Empire_Prestige_Edition.py
+python DPM-GEPE.py
 ```
 
 *程序会自动启动一个独立的 Chrome 调试窗口，不会影响你原本的浏览器。*
