@@ -90,7 +90,7 @@ CONFIG = {
     "PAGE_REST_MAX": 10.0,
     "MODE": "GALLERY",
     
-    "MIN_IMAGE_SIZE_KB": 15,
+    "MIN_IMAGE_SIZE_KB": 5.0, # ✨ 默认下调至 5KB，放行黑白图纸和线稿
     "USER_DATA_DIR_NAME": "Chrome_Crawler_Profile",
     "VIDEO_EXTS": ('.mp4', '.mov', '.webm', '.mkv', '.avi', '.m4v')
 }
@@ -100,7 +100,7 @@ HEADERS = {
 }
 
 # ==========================================
-# 🎩 UI 呈现层
+# 🎩 UI 呈现层 (绝对锁定，不随版本变动)
 # ==========================================
 class GalaxyUI:
     @staticmethod
@@ -114,7 +114,7 @@ class GalaxyUI:
     ╚██████╔╝██║  ██║███████╗██║  ██║██╔╝ ██╗   ██║   
      ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   
         """
-        subtitle = "R E A P E R   P R O T O C O L   v 1 6 . 5"
+        subtitle = "R E A P E R   P R O T O C O L   v 1 6 . 6"
         info_text = Text()
         info_text.append(title_art, style=f"bold {C_GOLD}")
         info_text.append(f"\n{subtitle.center(56)}", style=f"bold {C_ACCENT}")
@@ -129,11 +129,10 @@ class GalaxyUI:
         table.add_column("MODE", style=f"bold {C_ACCENT}", width=22)
         table.add_column("DETAILS", style=f"{C_BRONZE}")
         
-        # ✨ 修复排版：使用战术文本徽章代替 Emoji，彻底解决 Windows 终端对齐问题
         table.add_row("1", "[ FAST ] 极速画廊", "点进链接下大图 | 适合: 普通图站/建筑网")
         table.add_row("2", "[ SAFE ] 潜行画廊", "点进链接下大图 (慢速防封) | 适合: Rule34")
         table.add_row("3", "[ FLOW ] 单页瀑布流", "不翻页，直接抓取当前页所有图 | 适合: 微信公众号/知乎")
-        table.add_row("4", "[ EDIT ] 手动调校", "自定义参数")
+        table.add_row("4", "[ EDIT ] 手动调校", "自定义参数 (含大小过滤)")
         console.print(table)
         
         choice = Prompt.ask(f"[{C_GOLD}]Command >[/]", choices=["1", "2", "3", "4"], default="3")
@@ -141,19 +140,24 @@ class GalaxyUI:
         if choice == '1':
             CONFIG["MODE"] = "GALLERY"
             CONFIG["MAX_WORKERS"] = 5; CONFIG["DELAY_MIN"] = 0.1; CONFIG["DELAY_MAX"] = 0.5
+            CONFIG["MIN_IMAGE_SIZE_KB"] = 5.0
             GalaxyUI.log("SYS", "极速画廊模式已装载。", "warn")
         elif choice == '2':
             CONFIG["MODE"] = "GALLERY"
             CONFIG["MAX_WORKERS"] = 1; CONFIG["DELAY_MIN"] = 10.0; CONFIG["DELAY_MAX"] = 20.0
+            CONFIG["MIN_IMAGE_SIZE_KB"] = 5.0
             GalaxyUI.log("SYS", "潜行画廊模式已激活。", "success")
         elif choice == '3':
             CONFIG["MODE"] = "SINGLE"
             CONFIG["MAX_WORKERS"] = 3; CONFIG["DELAY_MIN"] = 0.5; CONFIG["DELAY_MAX"] = 1.5
+            CONFIG["MIN_IMAGE_SIZE_KB"] = 5.0
             GalaxyUI.log("SYS", "单页瀑布流模式已锁定 (专杀微信)。", "info")
         elif choice == '4':
             CONFIG["MODE"] = "GALLERY"
             CONFIG["MAX_WORKERS"] = IntPrompt.ask(f"[{C_BRONZE}]并发数[/]", default=2)
             CONFIG["DELAY_MIN"] = FloatPrompt.ask(f"[{C_BRONZE}]最小延迟(s)[/]", default=1.5)
+            # ✨ 新增：允许用户手动调节大小过滤阈值
+            CONFIG["MIN_IMAGE_SIZE_KB"] = FloatPrompt.ask(f"[{C_BRONZE}]最小图片限制(KB)[/]", default=5.0)
 
     @staticmethod
     def log(tag, message, level="info"):
